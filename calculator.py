@@ -57,6 +57,8 @@ def calc(args):
             # and then loop through it again
             calc(args)
     
+    # then we return the result
+    # by this point it should only be one item in the array
     return args[0]
     
 
