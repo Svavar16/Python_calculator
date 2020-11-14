@@ -8,16 +8,13 @@ print("Something like this: 123 + 324 - 3245 + 453 / 5 * 4.")
 
 # we create a function that deals with the calculation
 def calc(args):
-    # so if the list has only 1 result
-    if len(args) == 1:
-        # print(args[0])
-        return args[0]
-    elif (len(args) % 2) == 0:
+    # so the list should be odd number, if not the something is wrong
+    if (len(args) % 2) == 0:
         return -1
+    # and while we have some data in the array
     elif len(args) > 1:
         # to contain the value that the result should give us
         total = 0
-
         # then we loop though all of the math symbols
         # for the plus
         if args[1] == '+':
@@ -30,7 +27,6 @@ def calc(args):
             # and then loop through it again
             calc(args)
         # for the minus
-        
         elif args[1] == '-':
             # so we get the value 
             total = int(args[0]) - int(args[2])
@@ -40,7 +36,7 @@ def calc(args):
             args.insert(0, str(total))
             # and then loop through it again
             calc(args)
-        
+        #for the multiplication
         elif args[1] == '*':
             # so we get the value 
             total = int(args[0]) * int(args[2])
@@ -50,7 +46,7 @@ def calc(args):
             args.insert(0, str(total))
             # and then loop through it again
             calc(args)
-        
+        #for the division
         elif args[1] == '/':
             # so we get the value 
             total = int(args[0]) / int(args[2])
@@ -61,6 +57,8 @@ def calc(args):
             # and then loop through it again
             calc(args)
     
+    return args[0]
+    
 
 # we fist get the numbers and the actions
 stringToGet = input("enter your numbers here: ")
@@ -68,8 +66,6 @@ stringToGet = input("enter your numbers here: ")
 # then we split the string
 stringDivided = stringToGet.split()
 
-# dont know why, but need to run the function twice for it to get the value
-calc(stringDivided)
 # get the result
 result = calc(stringDivided)
 # print(result)
